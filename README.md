@@ -37,7 +37,7 @@ The UI/UX design of auTask is **original and created by me in Figma**. Below are
 
 | Home Page | Tasks Page |
 |-----------|------------|
-| ![Home Screenshot](previews/auTaskHomePage.png) | ![Tasks Screenshot](previews/auTaskTaskPage.png) |
+| ![Home Screenshot](previews/auTaskHomePage.jpg) | ![Tasks Screenshot](previews/auTaskTaskPage.jpg) |
 
 > You can find the full design prototype [here](https://www.figma.com/design/ZGSxD2k5g8LvNEzUjabTEA/Untitled?node-id=23-72&t=39dPhucE3d0DLdEP-0) (add Figma link if you'd like).
 
