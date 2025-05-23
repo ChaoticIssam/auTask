@@ -1,18 +1,22 @@
-import type React from "react"
-import Navbar from "./components/Navbar"
-import fileBoxLogo from "../public/logo2.png"
-import "./index.css"
-import Background from "./components/Background"
+import React from 'react';
+import { useNavigate } from "react-router-dom"
+import Navbar from '../components/Navbar';
+import fileBoxLogo from '../assets/archivesBox.png';
+import Background from '../components/Background';
 
-const App: React.FC = () => {
+const LandingPage: React.FC = () => {
+	const navigate = useNavigate()
 	return (
 		<Background>
 		<Navbar />
 		<main className="main-content">
 			<div className="content-container">
+			{/* Logo Image */}
 			<div className="logo-container">
 				<img src={fileBoxLogo || "/placeholder.svg"} alt="auTask File Box" className="logo-image" />
 			</div>
+
+			{/* Text Content */}
 			<div className="text-content">
 				<h1 className="title">
 				auTask<span className="accent-dot">.</span>
@@ -22,7 +26,7 @@ const App: React.FC = () => {
 				<br />
 				Safe and simple.
 				</p>
-				<a href="#" className="get-started-button">
+				<button className="get-started-button" onClick={() => navigate("/login")}>
 				Get Started
 				<svg className="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 					<path
@@ -31,7 +35,7 @@ const App: React.FC = () => {
 					clipRule="evenodd"
 					/>
 				</svg>
-				</a>
+				</button>
 			</div>
 			</div>
 		</main>
@@ -39,4 +43,4 @@ const App: React.FC = () => {
 	)
 }
 
-export default App
+export default LandingPage

@@ -1,7 +1,9 @@
 import type React from "react"
+import { useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
 
 const Navbar: React.FC = () => {
+	const navigate = useNavigate()
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 	const dropdownRef = useRef<HTMLDivElement>(null)
 	const iconRef = useRef<HTMLDivElement>(null)
@@ -26,8 +28,19 @@ const Navbar: React.FC = () => {
 	}, [])
 
 	const toggleDropdown = () => {
-		setIsDropdownOpen(!isDropdownOpen)
+		setIsDropdownOpen((prev) => !prev)
 	}
+
+	const handleLogin = () => {
+		setIsDropdownOpen(false)
+		navigate("/login")
+	}
+
+	const handleSignUp = () => {
+		setIsDropdownOpen(false)
+		navigate("/signup")
+	}
+
 	return (
 		<nav className="navbar">
 		<div className="logo">
@@ -50,15 +63,19 @@ const Navbar: React.FC = () => {
 			</svg>
 			</div>
 
-			{isDropdownOpen && (
+		{isDropdownOpen && (
 			<div ref={dropdownRef} className="user-dropdown">
 				<div className="dropdown-arrow"></div>
 				<ul className="dropdown-menu">
 				<li className="dropdown-item">
-					<button className="dropdown-button">Login</button>
+					<button className="dropdown-button" onClick={handleLogin}>
+					Login
+					</button>
 				</li>
 				<li className="dropdown-item">
-					<button className="dropdown-button">Sign Up</button>
+					<button className="dropdown-button" onClick={handleSignUp}>
+					Sign Up
+					</button>
 				</li>
 				</ul>
 			</div>
