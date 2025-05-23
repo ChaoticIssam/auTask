@@ -35,9 +35,17 @@
 
 The UI/UX design of auTask is **original and created by me in Figma**. Below are some previews:
 
-| Home Page | Tasks Page |
-|-----------|------------|
-| ![Home Screenshot](previews/auTaskHomePage.jpg) | ![Tasks Screenshot](previews/auTaskTaskPage.jpg) |
+| Landing Page | Login Page | Sign Up Page |
+|--------------|------------|--------------|
+| ![Landing Screenshot](previews/auTaskLandingPage.jpg) | ![Home Screenshot](previews/auTaskLoginPage.jpg) | ![Tasks Screenshot](previews/auTaskSignupPage.jpg) |
+
+| Home Page | Tasks page | User tools |
+|-----------|------------|------------|
+| ![Home Screenshot](previews/auTaskHomePage.jpg) | ![Home Screenshot](previews/auTaskTaskPage.jpg) | ![Tasks Screenshot](previews/auTaskUserTools.jpg) |
+
+| Location, Weather and Time |
+|----------------------------|
+| ![Home Screenshot](previews/auTaskW&T&L.jpg) |
 
 > You can find the full design prototype [here](https://www.figma.com/design/ZGSxD2k5g8LvNEzUjabTEA/Untitled?node-id=23-72&t=39dPhucE3d0DLdEP-0) (add Figma link if you'd like).
 
