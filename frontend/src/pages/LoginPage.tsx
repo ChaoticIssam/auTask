@@ -2,11 +2,14 @@
 import type React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Eye, EyeOff } from "lucide-react"
 
 const LoginPage: React.FC = () => {
 	const navigate = useNavigate()
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const [showPassword, setShowPassword] = useState(false)
+	
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
@@ -17,6 +20,9 @@ const LoginPage: React.FC = () => {
 	const handleGoogleLogin = () => {
 		// Handle Google login logic here
 		console.log("Google login clicked")
+	}
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword)
 	}
 
 	return (
@@ -60,15 +66,23 @@ const LoginPage: React.FC = () => {
 					/>
 					</div>
 
-					<div className="form-group">
+					<div className="form-group password-input-container">
 					<input
-						type="password"
+						type={showPassword ? "text" : "password"}
 						placeholder="Password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
-						className="form-input"
+						className="form-input password-input"
 						required
 					/>
+					<button
+						type="button"
+						className="password-toggle"
+						onClick={togglePasswordVisibility}
+						aria-label={showPassword ? "Hide password" : "Show password"}
+					>
+						{showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+					</button>
 					</div>
 
 					<div className="forgot-password">

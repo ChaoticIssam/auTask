@@ -3,23 +3,33 @@
 import type React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Eye, EyeOff } from "lucide-react"
 
 const SignUpPage: React.FC = () => {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmpassword, setConfirmpassword] = useState("")
+	const navigate = useNavigate()
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
+	const [confirmpassword, setConfirmpassword] = useState("")
+	const [showPassword, setShowPassword] = useState(false)
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle signup logic here
-    console.log("Form submitted:", { email, password })
-  }
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault()
+		// Handle signup logic here
+		console.log("Form submitted:", { email, password })
+	}
 
-  const handleGoogleLogin = () => {
-    // Handle Google login logic here
-    console.log("Google login clicked")
-  }
+	const handleGoogleLogin = () => {
+	// Handle Google login logic here
+	console.log("Google login clicked")
+	}
+
+	const togglePasswordVisibility = () => {
+    	setShowPassword(!showPassword)
+	}
+	const toggleConfirmPasswordVisibility = () => {
+		setShowConfirmPassword(!showConfirmPassword)
+	}
 
   return (
     <div className="outer-background">
@@ -61,25 +71,41 @@ const SignUpPage: React.FC = () => {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group password-input-container">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="form-input"
+                    className="form-input password-input"
                     required
                   />
+                  <button
+                    type="button"
+                    className="password-toggle"
+                    onClick={togglePasswordVisibility}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  </button>
                 </div>
-				<div className="form-group">
+				<div className="form-group password-input-container">
 				  <input
-				  	type="confirmpassword"
+				  	type={showConfirmPassword ? "text" : "password"}
 					placeholder="Confirm Password"
 					value={confirmpassword}
 					onChange={(e) => setConfirmpassword(e.target.value)}
 					className="form-input"
 					required
 					/>
+				<button
+					type="button"
+					className="password-toggle"
+					onClick={toggleConfirmPasswordVisibility}
+					aria-label={showConfirmPassword ? "Hide confirm password" : "Show confirm password"}
+					>
+					{showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+				</button>
 				</div>
 
                 <div className="divider">

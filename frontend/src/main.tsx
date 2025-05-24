@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import LandingPage from "./pages/LandingPage.tsx"
 import LoginPage from "./pages/LoginPage.tsx"
 import SignUpPage from "./pages/SignupPage"
+import HomePage from "./pages/HomePage.tsx"
 import "./index.css"
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignUpPage />,
   },
+  {
+	path: "/home",
+	element: <HomePage />,
+  }
 ])
 
 const rootElement = document.getElementById("root")
